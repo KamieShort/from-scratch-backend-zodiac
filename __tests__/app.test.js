@@ -10,7 +10,7 @@ describe('zodiac routes', () => {
     return setup(pool);
   });
 
-  it('/zodiac should return an array of zodiac signs as objects', async () => {
+  it('/zodiac should return an array of zodiac signs', async () => {
     const res = await request(app).get('/zodiac');
     expect(res.body).toEqual(zodiac);
   });
