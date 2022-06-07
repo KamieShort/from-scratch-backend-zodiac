@@ -12,7 +12,10 @@ describe('zodiac routes', () => {
 
   it('/zodiac should return an array of zodiac signs', async () => {
     const res = await request(app).get('/zodiac');
-    expect(res.body).toEqual(zodiac);
+    const expected = zodiac.map((item) => {
+      return { id: item.id, name: item.name };
+    });
+    expect(res.body).toEqual(expected);
   });
 
   it('/zodiac/:id should return zodiac details', async () => {
